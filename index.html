@@ -11,7 +11,7 @@
           if (xhr.readyState === 4) {
             var data = JSON.parse(xhr.responseText);
             var updated_at = document.getElementById('updated_at');
-            updated_at.inner_text = data.updated_at;
+            updated_at.innerText = data.updated_at;
           }
           else {
             document.getElementById('updated_at').inner_text = '（获取失败）';
