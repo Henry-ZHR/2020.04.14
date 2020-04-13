@@ -1,24 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <p>
-      <p>最后修改于：</p>
-      <p id='updated_at'>（正在获取）</p>
-      <script>
-        var xhr = new XMLHttpRequest();
-        xhr.open('get', 'https://api.github.com/repos/Henry-ZHR/2020.04.14');
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4) {
-            var data = JSON.parse(xhr.responseText);
-            var updated_at = document.getElementById('updated_at');
-            updated_at.innerText = data.updated_at;
-          }
-          else {
-            document.getElementById('updated_at').inner_text = '（获取失败）';
-          }
-        }
-        xhr.send();
-      </script>
-    </p>
-  </body>
+ <head></head>
+ <body>
+  <table border="1">
+   <tbody>
+    <tr>
+     <th>科目</th>
+     <th>上课时间</th>
+     <th>作业内容</th>
+     <th>作业截止时间</th>
+     <th>是否允许补做</th>
+    </tr>
+    <tr>
+     <td>数学</td>
+     <td>09:00-09:50</td>
+     <td>二次函数的最值2</td>
+     <td>04-14 22:00</td>
+     <td>是</td>
+    </tr>
+    <tr>
+     <td>道德与法治</td>
+     <td>10:00-10:50</td>
+     <td>五三 P60-62 《第4课时 国家监察机关》</td>
+     <td>04-18 21:00</td>
+     <td>未知</td>
+    </tr>
+    <tr>
+     <td>音乐</td>
+     <td>11:00-11:50</td>
+     <td>/</td>
+     <td>/</td>
+     <td>/</td>
+    </tr>
+    <tr>
+     <td>语文</td>
+     <td>14:40-15:30</td>
+     <td>未知</td>
+     <td>未知</td>
+     <td>未知</td>
+    </tr>
+    <tr>
+     <td>英语</td>
+     <td>15:40-16:30</td>
+     <td>堂上完成SHE P55-57<br/>五三 学习全解版P172，完成P32-33 Period 2<br/>智学网答题卡检测</td>
+     <td>未知</td>
+     <td>未知</td>
+    </tr>
+    <tr>
+     <td>体锻</td>
+     <td>16:40-17:30</td>
+     <td>原地扶墙摆腿练习（左右腿各20次）/3组<br/>单脚支撑 提物10个/组X3组、单双脚跳10个/组X3组<br/>仰卧蹬腿25秒/3组、开合跳20个/组X3</td>
+     <td>/</td>
+     <td>/</td>
+    </tr>
+   </tbody>
+  </table>
+  <p>最后修改于：</p>
+  <p id="updated_at">（正在获取）</p>
+  <script>
+   var xhr = new XMLHttpRequest();
+   xhr.open('get', 'https://api.github.com/repos/Henry-ZHR/2020.04.14');
+   xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+     var data = JSON.parse(xhr.responseText);
+     var updated_at = document.getElementById('updated_at');
+     updated_at.innerText = data.updated_at;
+    }
+    else {
+     document.getElementById('updated_at').inner_text = '（获取失败）';
+    }
+   }
+   xhr.send();
+  </script>
+ </body>
 </html>
