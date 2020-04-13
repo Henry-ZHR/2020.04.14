@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <p>
+      <p>最后修改于：</p>
+      <p id='updated_at'>（正在获取）</p>
+      <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', 'https://api.github.com/repos/Henry-ZHR/2020.04.14');
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+            var data = JSON.parse(xhr.responseText);
+            var updated_at = document.getElementById('updated_at');
+            updated_at.inner_text = data.updated_at;
+          }
+          else {
+            document.getElementById('updated_at').inner_text = '（获取失败）';
+          }
+        }
+      </script>
+    </p>
+  </body>
+</html>
